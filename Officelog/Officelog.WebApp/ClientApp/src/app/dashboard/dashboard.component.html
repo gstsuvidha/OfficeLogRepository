@@ -1,0 +1,49 @@
+<!--
+<p-card title="Simple Card" [style]="{width: '360px'}" styleClass="ui-card-shadow" >
+  <div>Lorem ipsum dolor sit amet, consectetur 
+    adipisicing elit. Inventore sed consequuntur error repudiandae 
+    numquam deserunt
+      </div>
+</p-card>
+<p-card title="Simple Card" [style]="{width: '360px'}" styleClass="ui-card-shadow" >
+    <div>Lorem ipsum dolor sit amet, consectetur 
+      adipisicing elit. Inventore sed consequuntur error repudiandae 
+      numquam deserunt
+        </div>
+  </p-card>-->
+  <div class="ui-g c">
+    <div class="ui-g-10 ui-sm-10 ui-md-10">
+      <div class="ui-g">
+        <div class="ui-g-6 ui-sm-6-ui-md-6 c1" (click)="companydashboardLog()">
+          <p-card title="&nbsp;" [style]="{width: '360px',height:'350px',background:'wheat'}" styleClass="ui-card-shadow">
+            <div>
+              <h1 style="text-align: center;">Company Log</h1>
+              <br>
+              <i class="fa fa-university" aria-hidden="true" style="font-size:70px;color:rgb(39, 35, 35);padding-left: 120px;
+              padding-top:40px;"></i>
+            </div>
+          </p-card>
+        </div>
+        <div class="ui-g-6 ui-sm-6-ui-md-6" (click)="marketingLogList()">
+  
+          <p-card title="&nbsp;" [style]="{width: '360px',height:'350px',background:'wheat'}" styleClass="ui-card-shadow">
+            <div>
+              <h1 style="text-align: center;">Marketing Log</h1>
+              <br>
+              <i class="fa fa-line-chart" aria-hidden="true" style="font-size:70px;color:rgb(39, 35, 35);padding-left: 120px;
+              padding-top:40px;"></i>
+            </div>
+          </p-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  
+  <!--
+    dashboardLog(){
+  
+      this._router.navigate(['dashboard_log']);
+     
+    }
+  -->

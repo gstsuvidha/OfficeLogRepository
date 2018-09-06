@@ -1,0 +1,89 @@
+
+<div class="ui-g card" style="background-image:linear-gradient(90deg, #31282840, #87d1f3) ;">
+    <div class="ui-g-10 ui-md-offset-1">
+        <br><br>
+      
+        <div class="ui-g card">
+            <div class="ui-md-11 ui-sm-11-ui-g-11">
+                <br>
+                <br>
+                <u> <h3 style="text-align:center; font-size:26px;">Marketing Report</h3></u>
+                <p-table>
+                  
+                    <ng-template pTemplate="header">
+                        <tr>
+                          <th rowspan=2 class="trt">
+                              Summary
+                          </th>
+                            <th class="trt">
+                                Total Software Interested
+                            </th>
+                            <th class="trt">
+                                Total Service Interested
+                            </th>
+                          </tr>
+  
+                        <tr>
+                            <th  style="background:white;">
+                                    {{marketingReport?.totalSoftwareInterested}}
+                                </th>
+                            <th style="background:white;">
+                                    {{marketingReport?.totalServiceInterested}}
+                                </th>
+                        </tr>
+  
+                        <br>
+                        <br>
+  
+                    </ng-template>
+                </p-table>
+                <!--chart start-->
+                <div class="ui-g-10 ui-md-offset-2">
+                        <p-chart type="bar" [data]="marketdata"  [options]="opt"></p-chart>
+                        
+                </div>
+                      <!--chart end-->
+                </div>
+                </div>
+                <!--conveo start-->
+                <div class="ui-g card">
+                <div class="ui-md-11 ui-sm-11-ui-g-11">
+                    <br>
+                    <br>
+                    <u> <h3 style="text-align:center; font-size:26px;">Conversion Report</h3></u>
+                    <p-table>
+                      
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th rowspan=2 class="trt">
+                                    Summary
+                                </th>
+                                <th class="trt">
+                                  Total Conversions
+                                </th>
+                              </tr>
+      
+                            <tr>
+                                <th style="background:white;">
+                                        {{conversionReport?.totalConversions}}
+                                    </th>
+                            </tr>
+      
+                            <br>
+                            <br>
+      
+                        </ng-template>
+                    </p-table>
+                    </div>
+                    <div class="ui-g-10 ui-md-offset-2">
+                            <p-chart type="doughnut" [data]="convodata"  [options]="optsw"></p-chart> 
+                            <br>
+                            <br>
+                    </div>
+                    </div>
+                  
+      </div>
+      </div>   
+     
+        
+  

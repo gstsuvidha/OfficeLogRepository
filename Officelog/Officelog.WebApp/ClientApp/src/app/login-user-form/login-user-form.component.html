@@ -1,0 +1,45 @@
+<form [formGroup]="userProfileForm"  (ngSubmit)="onSave()"
+style="margin-left: 220px; margin-right: 220px; margin-top:35px">
+    <p-panel>
+        <p-header  style="text-align:center;">
+            <div class="ui-helper-clearfix">
+            <span class="ui-panel-title pan">User Profile</span>
+            </div>
+        </p-header>
+
+<div class="ui-g ui-fluid">
+    <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+        <label for="name"> Name:</label>
+      </div>
+      <div class="ui-sm-6  ui-g-6">
+        <input id="name" formControlName="name" type="text" pInputText>
+      </div>
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+          <label for="contactNumber">Contact:</label>
+        </div>
+        <div class="ui-sm-6  ui-g-6">
+          <input id="name" formControlName="contactNumber" type="number" pInputText>
+        </div>
+        <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+            <label for="designation">Desigination:</label>
+          </div>
+          <div class="ui-sm-6  ui-g-6">
+            <input id="name" formControlName="designation" type="text" pInputText>
+          </div>
+
+</div>
+    
+
+
+
+        <p-footer>
+            <button pButton type="submit" label="Submit" class="ui-button-success"></button>
+          </p-footer>
+
+
+      </p-panel>
+
+</form>
+<br>
+<br>
+{{userProfileForm.value |json}}

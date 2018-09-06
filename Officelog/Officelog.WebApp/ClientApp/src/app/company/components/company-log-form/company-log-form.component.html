@@ -1,0 +1,169 @@
+<form [formGroup]="userForm" (ngSubmit)="saveCompanyLog()" style="margin-left: 120px; margin-right: 120px; margin-top:05px">
+
+  <p-button label="Back" button type="button" (onClick)="companyLogList()" icon="fa fa-fw fa-arrow-left" class="ui-button-rounded ui-button-success"></p-button>
+  <p>&nbsp;</p>
+  <p-panel>
+    <p-header style="text-align:center; font-size: 20px">
+      <div class="ui-helper-clearfix">
+        <span class="ui-panel-title" style="display:inline-block;
+         font-weight: bold; font-size: 25px">Company Log</span>
+      </div>
+    </p-header>
+    <div class="ui-g">
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+          <label for="date">Date:</label>
+      </div>
+      <div class="ui-sm-8  ui-g-8">
+          <p-calendar formControlName="date" [showIcon]="true" editable="false" disabled="true" dateFormat="dd.mm.yy"> </p-calendar>
+      </div>
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+        <label for="name">Trade Name:</label>
+      </div>
+      <div class="ui-sm-8  ui-g-8">
+        <input id="name" formControlName="name" type="text" pInputText>
+      </div>
+
+
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+        <label for="contact">Contact Number:</label>
+      </div>
+      <div class="ui-sm-8  ui-g-8">
+        <input id="contact" formControlName="contactNumber" type="number" pInputText>
+      </div>
+
+
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 15px">
+        <label for="queryHandling">Query Handling:</label>
+      </div>
+      <div class="ui-sm-8  ui-g-8 nopad" style="width: 500px;">
+        <div class="ui-sm-3  ui-g-3 nopad">
+          <p-radioButton name="group1" formControlName="queryHandling" value="Bad" label="Bad"></p-radioButton>
+        </div>
+        <div class="ui-sm-3  ui-g-3 nopad">
+          <p-radioButton name="group1" formControlName="queryHandling" value="Good" label="Good"></p-radioButton>
+        </div>
+        <div class="ui-sm-3  ui-g-3 nopad">
+          <p-radioButton name="group1" formControlName="queryHandling" value="Very Good" label="Very Good"></p-radioButton>
+        </div>
+        <div class="ui-sm-3  ui-g-3 nopad">
+          <p-radioButton name="group1" formControlName="queryHandling" value="Excellent" label="Excellent"></p-radioButton>
+        </div>
+      </div>
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+        <label for="serviceProvided">Service Provided:</label>
+      </div>
+      <div class="ui-sm-8  ui-g-8" style="width: 500px;">
+        <div class="ui-sm-3  ui-g-3 nopad">
+          <p-radioButton name="group2" formControlName="serviceProvided" value="Bad" label="Bad"></p-radioButton>
+        </div>
+        <div class="ui-sm-3   ui-g-3 nopad">
+          <p-radioButton name="group2" formControlName="serviceProvided" value="Good" label="Good"></p-radioButton>
+        </div>
+        <div class="ui-sm-3  ui-g-3  nopad">
+          <p-radioButton name="group2" formControlName="serviceProvided" value="Very Good" label="Very Good"></p-radioButton>
+        </div>
+        <div class="ui-sm-3   ui-g-3 nopad">
+          <p-radioButton name="group2" formControlName="serviceProvided" value="Excellent" label="Excellent"></p-radioButton>
+        </div>
+      </div>
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+        <label for="visitorType">Visitor Type:</label>
+      </div>
+      <div class="ui-sm-8  ui-g-8 ui-fluid">
+        <p-dropdown [style]="{'width': '175px'}" [options]="visitorType" placeholder="Select a Type" formControlName="visitorType"
+          filter="true"></p-dropdown>
+      </div>
+
+      <div class="ui-sm-4  ui-g-4" style="margin-top: 10px">
+        <label for="rateUs">Are you interested in our software?</label>
+      </div>
+      <div class="ui-sm-8  ui-g-8">
+        <div class="ui-sm-4  ui-g-4 nopad">
+          <p-radioButton name="group3" formControlName="softwareInterested" value="Yes" label="Yes" (onClick)="redioYes();"></p-radioButton>
+
+        </div>
+        <div class="ui-sm-4  ui-g-4 nopad">
+          <p-radioButton name="group3" formControlName="softwareInterested" value="No" label="No" (onClick)="redioNo();"></p-radioButton>
+
+
+        </div>
+
+      </div>
+
+      <div class="ui-sm-12  ui-g-12" *ngIf="blockPreviewYes">
+        <div class="ui-sm-8  ui-g-8 ui-md-offset-4">
+          <p-panel>
+            <p-header>
+              <div class="ui-helper-clearfix">
+                <span class="ui-panel-title">Please rate us.</span>
+              </div>
+            </p-header>
+            <div class="ui-g">
+              <div class="ui-sm-12  ui-g-12">
+                <div class="ui-sm-3  ui-g-3 nopad">
+                  <p-radioButton name="group4" formControlName="rateUs" value="Bad" label="Bad"></p-radioButton>
+                </div>
+                <div class="ui-sm-3  ui-g-3 nopad">
+                  <p-radioButton name="group4" formControlName="rateUs" value="Good" label="Good"></p-radioButton>
+                </div>
+                <div class="ui-sm-3  ui-g-3 nopad">
+                  <p-radioButton name="group4" formControlName="rateUs" value="Very Good" label="Very Good"></p-radioButton>
+                </div>
+                <div class="ui-sm-3 ui-g-3 nopad">
+                  <p-radioButton name="group4" formControlName="rateUs" value="Excellent" label="Excellent"></p-radioButton>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g">
+              <div class="ui-sm-12 ui-g-12">
+                <label for="anySuggestion">Any suggestion?</label>
+              </div>
+              <div class="ui-sm-12 ui-g-12">
+                <textarea id="anySuggestion" rows="5" cols="45" pInputTextarea formControlName="suggestionForYes" autoResize="autoResize"></textarea>
+              </div>
+
+            </div>
+          </p-panel>
+        </div>
+      </div>
+
+      <div class="ui-sm-12 ui-g-12" *ngIf="blockPreviewNo">
+        <div class="ui-sm-8 ui-g-8 ui-md-offset-4">
+          <p-panel>
+            <p-header>
+              <div class="ui-helper-clearfix">
+                <span class="ui-panel-title">Please give reasons and suggestion, so that we can improve.</span>
+              </div>
+            </p-header>
+            <div class="ui-g">
+              <div class="ui-sm-4 ui-g-4 nopad">
+                <p-radioButton name="group6" formControlName="rateUsForNo" value="alreadyHave" label="Already have" (onClick)="closeOtherReason();"></p-radioButton>
+              </div>
+              <div class="ui-sm-4 ui-g-4 nopad">
+                <p-radioButton name="group6" formControlName="rateUsForNo" value="notFriendly" label="Not Friendly" (onClick)="closeOtherReason();"></p-radioButton>
+              </div>
+              <div class="ui-sm-3 ui-g-3 nopad">
+                <p-radioButton name="group6" formControlName="rateUsForNo" value="others" label="others" (onClick)="otherReason();"></p-radioButton>
+              </div>
+              <div class="ui-sm-12 ui-g-12" *ngIf="ifOther">
+                <span>Please give suggestion to improvise</span>
+                <br>
+                <textarea id="anySuggestion" rows="5" cols="45" formControlName="suggestionForNo" pInputTextarea autoResize="autoResize"></textarea>
+              </div>
+            </div>
+          </p-panel>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <button pButton type="submit" label="Submit" class="ui-button-success"></button>
+    </p-footer>
+  </p-panel>
+</form>
+{{userForm.value |json}}

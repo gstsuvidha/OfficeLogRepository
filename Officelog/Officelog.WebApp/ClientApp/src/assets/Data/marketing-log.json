@@ -1,0 +1,15 @@
+[
+{
+    "id":1, 
+    "name": "Ankita", 
+    "contact": 12344456, 
+    "serviceInterested": "Yes", 
+    "softwareInterested": "Yes", 
+    "Conversion": "NotAchived" 
+},
+      { "id":2, "name": "Vishal", "contact": 9123654, "serviceInterested": "NO", "softwareInterested": " Yes", "Conversion": "Achived" },
+      { "id":3, "name": "Trishan", "contact": 8123654, "serviceInterested": "Yes", "softwareInterested": "Yes", "Conversion": "Achived" },
+      { "id":4, "name": "Ajeet", "contact": 7123654, "serviceInterested": "No", "softwareInterested": "Yes", "Conversion": "Achived" },
+      {"id":5, "name": "Avinash", "contact": 6123654, "serviceInterested": "No", "softwareInterested": "No", "Conversion": "Achived" },
+      { "id":6,"name": "Rakesh", "contact": 5123654, "serviceInterested": "Yes", "softwareInterested": "No", "Conversion": "NotAchived" }
+]

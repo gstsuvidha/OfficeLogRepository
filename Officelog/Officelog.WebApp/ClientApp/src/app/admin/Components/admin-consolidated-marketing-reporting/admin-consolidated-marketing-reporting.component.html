@@ -1,0 +1,83 @@
+
+<div class="ui-g card" style="background-image:linear-gradient(90deg, #31282840, #87d1f3) ;">
+    <div class="ui-g-10 ui-md-offset-1">
+        <br><br>
+      
+        <div class="ui-g card">
+            <div class="ui-md-11 ui-sm-11-ui-g-11">
+                <h2 style="text-align:center;">MARKETING REPORT</h2>
+                <p-table>
+                  
+                    <ng-template pTemplate="header">
+                        <tr>
+                          <th rowspan=2 class="trt">
+                              Summary
+                          </th>
+                            <th class="trt">
+                                Total Software Interested
+                            </th>
+                            <th class="trt">
+                                Total Service Interested
+                            </th>
+                            <th class="trt">
+                                  Average price of software
+                              </th>
+                          </tr>
+  
+                        <tr>
+                            <th  style="background:white;">{{marketingReports?.totalSoftwareInterested}}</th>
+                            <th style="background:white;">{{marketingReports?.totalServiceInterested}}</th>
+                            <th style="background:white;">{{marketingReports?.averagePriceOfSoftware}}</th>
+                        </tr>
+                        <br>
+  
+                    </ng-template>
+                </p-table>
+                </div>
+                <div class="ui-g-8 ui-md-offset-2" >
+                      <br><br>
+                      <p-chart type="bar" [data]="marketingReportData" [options]="options"></p-chart>
+                  </div>
+                </div>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                <div class="ui-g card">
+                      
+                <div class="ui-md-11 ui-sm-11-ui-g">
+                  <h2 style="text-align:center; font-size:26px;">CONVERSION REPORT</h2>
+                    <p-table>
+                      
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th rowspan=2 class="trt">
+                                    Summary
+                                </th>
+                                <th class="trt">
+                                  Total Conversions
+                                </th>
+                                
+                              </tr>
+      
+                            <tr>
+                                <th style="background:white;">{{conversionReports?.totalConversions}}</th>
+                                
+                            </tr>
+      
+                            <br>
+                            <br>
+      
+                        </ng-template>
+                    </p-table>
+                    </div>
+                    <div class="ui-g-6 ui-md-offset-3">
+                          <br><br>
+                          <p-chart type="bar" [data]="conversionReportData" [options]="options"></p-chart>
+                      </div>
+                    </div>
+                    <br><br><br><br><br>
+      </div>
+      </div>   
+        

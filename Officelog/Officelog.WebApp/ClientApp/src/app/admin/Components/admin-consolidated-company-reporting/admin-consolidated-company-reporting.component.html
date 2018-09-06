@@ -1,0 +1,195 @@
+<!--client visit startted here-->
+<div class="ui-g card" style="background-image:linear-gradient(90deg, #31282840, #87d1f3) ;">
+    <div class="ui-g-10 ui-md-offset-1">
+        <!--table content 1-->
+        <div class="ui-g card">
+            <div class="ui-md-11 ui-sm-11-ui-g-11">
+                <br>
+                <br>
+                <u> <h3 style="text-align:center; font-size:26px;">Total visitor</h3></u>
+                <p-table>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th rowspan=2 class="trt">
+                                Summary
+                            </th>
+                            <th class="trt">
+                                Total Visits
+                            </th>
+                            <th class="trt">
+                                Total Client Visits
+                            </th>
+                            <th class="trt">
+                                Total Franchise Visits
+                            </th>
+                            <th class="trt">
+                                Total First Visits
+                            </th>
+                            <th class="trt">
+                                Total Second Or Third Visits
+                            </th>
+  
+  
+                        </tr>
+  
+                        <tr>
+                            <th  style="background:white;">{{companyReportData?.totalVisits}}</th>
+                            <th style="background:white;">{{companyReportData?.totalClientVisits}}</th>
+                            <th style="background:white;">{{companyReportData?.totalFranchiseVisits}}</th>
+                            <th style="background:white;">{{companyReportData?.totalFirstVisits}}</th>
+                            <th style="background:white;">{{companyReportData?.totalSecondOrThirdVisits}}</th>
+                        </tr>
+  
+                        <br>
+                        <br>
+  
+                    </ng-template>
+  
+  
+                </p-table>
+  
+  
+                <!--table content end-->
+  
+            </div>
+            <div class="ui-g-11 ui-md-offset-1" >
+              <br><br>
+              <p-chart type="bar" [data]="companyReportForVIsitor" [options]="options"></p-chart>
+          </div>
+        </div>
+        <!--client visit ended here-->
+        <!--query started here-->
+        <div class="ui-g card">
+            <div class="ui-md-11 ui-sm-11-ui-g-11">
+                    <u>    <h3 style="text-align:center; font-size:26px;">Query Rating</h3></u>
+                <p-table>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th rowspan=2 class="trt">
+                                Summary
+                            </th>
+                            <th class="trt">
+                                Total Bad Query Rating
+                            </th>
+                            <th class="trt">
+                                Total Good Query Rating
+                            </th>
+                            <th class="trt">
+                                Total Very Good Query Rating
+                            </th>
+                            <th class="trt">
+                                Total Excellent Query Rating
+                            </th>
+  
+  
+                        </tr>
+  
+                        <tr>
+                            <th  style="background:white;">{{companyReportData?.totalBadQueryRating}}</th>
+                            <th style="background:white;">{{companyReportData?.totalGoodQueryRating}}</th>
+                            <th style="background:white;">{{companyReportData?.totalVeryGoodQueryRating}}</th>
+                            <th style="background:white;">{{companyReportData?.totalExcellentQueryRating}}</th>
+                        </tr>
+  
+                        <br>
+                        <br>
+  
+                    </ng-template>
+  
+  
+  
+                </p-table>
+            </div>
+            <div class="ui-g-9 ui-md-offset-1">
+              <br><br>
+              <p-chart type="bar" [data]="companyReportForQueryRating" [options]="options"></p-chart>
+          </div>
+        </div>
+        <!--query ended here-->
+        <!--Query service started here-->
+        <div class="ui-g card">
+            <div class="ui-md-11 ui-sm-11-ui-g-11">
+                   <u> <h3 style="text-align:center; font-size:26px;">Service Rating</h3></u>
+                <p-table>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th rowspan=2 class="trt">
+                                Summary
+                            </th>
+                            <th class="trt">
+                                Total Bad Query Service
+                            </th>
+                            <th class="trt">
+                                Total Good Query Service
+                            </th>
+                            <th class="trt">
+                                Total Very Good Query Service
+                            </th>
+                            <th class="trt">
+                                Total Excellent Query Service
+                            </th>
+  
+  
+                        </tr>
+  
+                        <tr>
+                          <th  style="background:white;">{{companyReportData?.totalBadServiceRating}}</th>
+                          <th style="background:white;">{{companyReportData?.totalGoodServiceRating}}</th>
+                          <th style="background:white;">{{companyReportData?.totalVeryGoodQueryRating}}</th>
+                          <th style="background:white;">{{companyReportData?.totalExcellentServiceRating}}</th>
+                      </tr>
+                        <br>
+                        <br>
+  
+                    </ng-template>
+  
+  
+                </p-table>
+                <!---chart conetent start -->
+            </div>
+            <div class="ui-g-11 ui-md-offset-1">
+                  <div class="ui-g-11">
+              <br><br>
+              <p-chart type="bar" [data]="companyReportForServiceRating" [options]="options"></p-chart>
+              </div>
+          </div>
+        </div>
+        <!--Query service  ended here-->
+        <!--Software Query started here-->
+        <div class="ui-g card">
+            <div class="ui-md-11 ui-sm-11-ui-g-11">
+                    <div class="ui-g card">
+                            <div class="ui-md-6 ui-sm-6-ui-g-6 ui-md-offset-3">
+                                 <u><h3 style="text-align:center; font-size:26px;">Software Intrested</h3></u>
+                <p-table>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th rowspan=2 class="trt">
+                                Summary
+                            </th>
+                            <th class="trt">
+                                Software Interested
+                            </th>
+                        </tr>
+  
+                        <tr>
+                            <th style="background:white;"> {{companyReportData?.totalSoftwareInterested}}</th>
+                        </tr>
+                    </ng-template>
+  <br>
+  
+                </p-table>
+                </div>
+                </div>
+            </div>
+            <div class="ui-g-5 ui-md-offset-3">
+              <br><br>
+              <p-chart type="bar" [data]="companyReportForSoftwareIntrested" [options]="options"></p-chart>
+          </div>
+        </div>
+        <!--Software Query ended here-->
+  
+    </div>
+  
+  </div>
+  
