@@ -1,9 +1,10 @@
 <form style="margin-left: 220px; margin-right: 220px; margin-top:35px">
+  <div class="card">
     <p-panel>
-        <p-header  style="text-align:center;">
+        <p-header  styleclass="ui-panel ui-panel-titlebar">
             <div class="ui-helper-clearfix">
-            <span class="ui-panel-title" style="font-family:Arial rounded bold;font-size:26px;display:inline-block;margin-top:2px">User Form</span>
-            </div>
+                <span class="ui-panel-title pan"><img src="assets/image/logo.png" id="logo"></span>
+                </div>
         </p-header>
 
 <div class="ui-g ui-fluid">
@@ -26,14 +27,14 @@
 
 
 
-        <p-footer>
-            <button pButton type="button" (click)="doLogin(userName.value,pwd.value)" label="Login" class="ui-button-success"></button>
+        <p-footer  style="padding-left: 40%">
+            <button pButton type="button" (click)="doLogin(userName.value,pwd.value)" label="Login" class="ui-button-raised ui-button-rounded"></button>
             
           </p-footer>
 
 
       </p-panel>
-
+    </div>
 </form>
 <br>
 <br>
