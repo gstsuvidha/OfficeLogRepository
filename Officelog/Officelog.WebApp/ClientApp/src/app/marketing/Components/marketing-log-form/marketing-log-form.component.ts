@@ -1,12 +1,11 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { SelectItem} from 'primeng/components/common/selectitem';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IMarketinglog } from '../marketing-log-list/marketing';
 import { convertActionBinding } from '@angular/compiler/src/compiler_util/expression_converter';
 import { MarketinglogService } from '../../../services/marketinglog.service';
-
-//import { MessageService } from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 
 
@@ -19,13 +18,15 @@ export interface ServiceItems {
 @Component({
   selector: 'app-marketing-log-form',
   templateUrl: './marketing-log-form.component.html',
-  styleUrls: ['./marketing-log-form.component.css']
+  styleUrls: ['./marketing-log-form.component.css'],
+  providers: [MessageService]
 })
 export class MarketingLogFormComponent implements OnInit {
 
   public userForm: FormGroup;
   marketingLog: IMarketinglog;
   interrestedInService: SelectItem[];
+  zone: SelectItem[];
   currentScenario: SelectItem[];
   blockPreviewYes = false;
   blockPreviewNo = false;
@@ -47,7 +48,7 @@ export class MarketingLogFormComponent implements OnInit {
               private router: Router, 
               private route: ActivatedRoute,
               private marketingLogService: MarketinglogService,
-              //private messageService: MessageService
+              private messageService: MessageService
              ) {}
 
 
@@ -58,6 +59,16 @@ export class MarketingLogFormComponent implements OnInit {
     });
 
     this.userForm = this.newForm();
+
+    this.zone=[
+      { label: 'Kankarbagh', value: 'Kankarbagh' },
+      { label: 'Rajendra Nagar', value: 'Rajendra Nagar' },
+      { label: 'Nala road', value: 'Nala road' },
+      { label: 'Kadamkuan', value: 'Kadamkuan' },
+      { label: 'Anisabad', value: 'Anisabad' },
+      { label: 'P C Colony', value: 'P C Colony' },
+      { label: 'Mithapur', value: 'Mithapur' }
+    ]
 
     this.interrestedInService = [
       { label: 'Accounting', value: 'Accounting' },
@@ -81,17 +92,17 @@ export class MarketingLogFormComponent implements OnInit {
   newForm():FormGroup{
     return this.fb.group({
       id: 0,
-      name: [''],
-      contactNumber: [],
-      softwareInterested: [''],
+      name: ['',Validators.required],
+      contactNumber: [[],[Validators.required]],
+      softwareInterested: ['',Validators.required],
       rateUs: [''],
       fee:0,
-      serviceInterested: [''],
+      serviceInterested: ['',Validators.required],
       rateUsForNo: [''],
       currentScenario: [''],
       suggestionForNo: [''],
       suggestionForYes: [''],
-      area: [''],
+      area: ['',Validators.required],
       date:new Date(),
       serviceItems : this.fb.array([])
     });
@@ -108,9 +119,9 @@ export class MarketingLogFormComponent implements OnInit {
   saveMarketingLog():void {
 
     if (this.userForm.valid) {
-  
+
         let p = Object.assign({}, this.marketingLog, this.userForm.value);
-  
+
          this.marketingLogService.save(p, this.id)
             .subscribe(si=>{});
           this.onSaveComplete()
@@ -126,21 +137,24 @@ export class MarketingLogFormComponent implements OnInit {
     this.router.navigate(['authenticated/marketing_log_list'])
   }
 
-  redioYes() {
+  softwareInterestedYes() {
     this.blockPreviewYes = true;
     this.blockPreviewNo = false;
   }
-  redioNo() {
+  softwareInterestedNo() {
     this.blockPreviewYes = false;
     this.blockPreviewNo = true;
+    
   }
-  interestedYes() {
+  serviceInterestedYes() {
     this.interested_Yes = true;
     this.interested_No = false;
+  
   }
-  interestedNo() {
+  serviceInterestedNo() {
     this.interested_No = true;
     this.interested_Yes = false;
+    
   }
 
   
@@ -216,29 +230,25 @@ export class MarketingLogFormComponent implements OnInit {
   }
   softwareConvert(){
     if(this.marketingLog.softwareInterested=="Yes"){
-      console.log(this.marketingLog.softwareInterested);
-      this.redioYes();
+      this.softwareInterestedYes();
       return "Yes";
     }
     else{
-      console.log(this.marketingLog.softwareInterested)
-      this.redioNo();
+      this.softwareInterestedNo();
       return "No";
     }
     
   }
   serviceConverter(){
-    if(this.marketingLog.softwareInterested=="Yes"){
-      // console.log(this.marketingLog.softwareInterested);
+    if(this.marketingLog.serviceInterested=="Yes"){
+      this.serviceInterestedYes();
       for (let i = 0; i < this.marketingLog.serviceItems.length; i++) {
         this.serviceTypeItems.push(this.buildServiceType(this.marketingLog.serviceItems[i]));
       }
-      this.interestedYes();
       return "Yes";
     }
     else{
-      console.log(this.marketingLog.softwareInterested)
-      this.interestedNo();
+      this.serviceInterestedNo();
       return "No";
     }
     

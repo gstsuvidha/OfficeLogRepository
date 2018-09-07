@@ -21,22 +21,46 @@
       <div class="ui-g-4 ui-sm-4" style="margin-top: 5px">
         <label for="area">Area:</label>
       </div>
-      <div class="ui-g-8 ui-sm-8">
-        <input id="area" formControlName="area" type="text" pInputText>
+      <div class="ui-g-4 ui-sm-4">
+        <!-- <input id="area" formControlName="area" type="text" pInputText> -->
+        <p-dropdown [style]="{'width': '173px'}" formControlName="area" [options]="zone"
+                   placeholder="Select an area" filter="true">
+                    <ng-template let-option pTemplate="item">
+                      <div translate> {{option.label}}</div>
+                    </ng-template>
+                  </p-dropdown>
+      </div>
+      <div class="ui-g-4 ">
+        <div class="ui-message ui-messages-error" style="border: 0px; color: red" *ngIf="userForm.get('area').touched && userForm.get('area').invalid">
+            <i class="fa fa-fw fa-close"></i>
+            Area is required
+        </div>
       </div>
 
       <div class="ui-g-4  ui-sm-4" style="margin-top: 5px">
         <label for="tradeName">Trade Name:</label>
       </div>
-      <div class="ui-sm-8 ui-g-8">
+      <div class="ui-sm-4 ui-g-4">
         <input id="tradeName" formControlName="name" type="text" pInputText>
+      </div>
+      <div class="ui-g-4 ">
+        <div class="ui-message ui-messages-error" style="border: 0px; color: red" *ngIf="userForm.get('name').touched && userForm.get('name').invalid">
+            <i class="fa fa-fw fa-close"></i>
+            Trade name is required
+        </div>
       </div>
 
       <div class="ui-sm-4  ui-g-4" style="margin-top: 5px">
         <label for="contact">Contact Number:</label>
       </div>
-      <div class="ui-sm-8 ui-g-8">
+      <div class="ui-sm-4 ui-g-4">
         <input id="contact" formControlName="contactNumber" type="number" pInputText>
+      </div>
+      <div class="ui-g-4 ">
+        <div class="ui-message ui-messages-error" style="border: 0px; color: red" *ngIf="userForm.get('contactNumber').touched && userForm.get('contactNumber').invalid">
+            <i class="fa fa-fw fa-close"></i>
+            Contact number is required
+        </div>
       </div>
 
       <div class="ui-sm-4 ui-g-4" style="margin-top: 10px">
@@ -44,10 +68,16 @@
       </div>
       <div class="ui-sm-8 ui-g-8">
         <div class="ui-sm-4 ui-g-4 nopad">
-          <p-radioButton name="group5" formControlName="serviceInterested" value="Yes" label="Yes" (onClick)="interestedYes();"></p-radioButton>
+          <p-radioButton name="group5" formControlName="serviceInterested" value="Yes" label="Yes" (onClick)="serviceInterestedYes();"></p-radioButton>
         </div>
         <div class="ui-sm-4 ui-g-4 nopad">
-          <p-radioButton name="group5" formControlName="serviceInterested" value="No" label="No" (onClick)="interestedNo();"></p-radioButton>
+          <p-radioButton name="group5" formControlName="serviceInterested" value="No" label="No" (onClick)="serviceInterestedNo();"></p-radioButton>
+        </div>
+        <div class="ui-g-4 ">
+          <div class="ui-message ui-messages-error" style="border: 0px; color: red" *ngIf="userForm.get('serviceInterested').touched && userForm.get('serviceInterested').invalid">
+              <i class="fa fa-fw fa-close"></i>
+              This field is required
+          </div>
         </div>
       </div>
 
@@ -120,10 +150,16 @@
       </div>
       <div class="ui-sm-8 ui-g-8">
         <div class="ui-sm-4 ui-g-4 nopad">
-          <p-radioButton name="group3" formControlName="softwareInterested" value="Yes" label="Yes" (onClick)="redioYes();"></p-radioButton>
+          <p-radioButton name="group3" formControlName="softwareInterested" value="Yes" label="Yes" (onClick)="softwareInterestedYes();"></p-radioButton>
         </div>
         <div class="ui-sm-4 ui-g-4 nopad">
-          <p-radioButton name="group3" formControlName="softwareInterested" value="No" label="No" (onClick)="redioNo();"></p-radioButton>
+          <p-radioButton name="group3" formControlName="softwareInterested" value="No" label="No" (onClick)="softwareInterestedNo();"></p-radioButton>
+        </div>
+        <div class="ui-g-4 ">
+          <div class="ui-message ui-messages-error" style="border: 0px; color: red" *ngIf="userForm.get('softwareInterested').touched && userForm.get('softwareInterested').invalid">
+              <i class="fa fa-fw fa-close"></i>
+              This field is required
+          </div>
         </div>
       </div>
 
@@ -205,7 +241,8 @@
 
     </div>
     <p-footer>
-      <button pButton type="submit" label="Submit" class="ui-button-success"></button>
+      <button pButton type="submit" label="Submit" class="ui-button-success" [disabled]="userForm.invalid"></button>
     </p-footer>
   </p-panel>
 </form>
+{{userForm.value | json}}

@@ -9,7 +9,8 @@ import { MarketingLogListComponent } from './Components/marketing-log-list/marke
 import { ConversionListComponent } from './Components/conversion/conversion-list/conversion-list.component';
 import { MarketingDashboardComponent } from './Components/marketing-dashboard/marketing-dashboard.component';
 import { ConversionFormComponent } from './Components/conversion/conversion-form/conversion-form.component';
-
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 const appRoutes: Routes = [
   {path: 'authenticated',
@@ -33,7 +34,9 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(appRoutes),
-    SharedModule
+    SharedModule,
+    MessageModule,
+    MessagesModule
   ],
   declarations: [
     MarketingLogFormComponent,
